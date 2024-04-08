@@ -96,6 +96,7 @@ char	*get_next_line(int fd)
 	buffer = ft_sep_str(&testo);
 	return (buffer);
 }
+
 /*int	main()
 {
 	char	*str;

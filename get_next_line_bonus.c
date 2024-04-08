@@ -91,12 +91,8 @@ char	*get_next_line(int fd)
 	if (!testo[fd])
 		return (NULL);
 	testo[fd] = ft_get_line(fd, testo[fd]);
-	if (!testo[fd] || !*testo[fd])
-	{
-		free(testo[fd]);
-		testo[fd] = NULL;
+	if (!testo[fd])
 		return (NULL);
-	}
 	buffer = ft_sep_str(&testo[fd]);
 	if (fd == 0 && buffer == NULL)
 	{
@@ -108,7 +104,6 @@ char	*get_next_line(int fd)
 /*int	main()
 {
 	int		fd1 = open("prova1.txt", O_RDONLY);
-	int		fd2 = open("prova2.txt", O_RDONLY);
 	char	*str;
 	int		i;
 	i = 0;
@@ -116,16 +111,14 @@ char	*get_next_line(int fd)
 	{
 		str = get_next_line(fd1);
 		printf("File %i: (riga %i) :%s\n", 1, i +1, str);
-		free(str);
-		str = get_next_line(fd2);
-		printf("File %i: (riga %i) :%s\n", 2, i +1, str);
-		free(str);
+		free(str); 
 		i++;
 	}
 	close(fd1);
-	close(fd2);
+	return (0);
 }*/
-/*int	main()
+/*#include <stdio.h>
+int	main()
 {
 	char	*str;
 	int		i;
@@ -139,7 +132,10 @@ char	*get_next_line(int fd)
 		free(str);
 		str = get_next_line(fd);
 	}
+	printf("stcazzo\n");
 	free(str);
 	close (fd);
 	return (0);
+//ctrl+c (sigint = signal interrupt) 
+//(ctrl+d = signal end of file quindi esce dal ciclo while e stampa printf)
 }*/
